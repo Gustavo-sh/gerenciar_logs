@@ -7,13 +7,11 @@ def limpar_logs(caminho):
 
     for raiz, pastas, arquivos in os.walk(caminho):
         if os.path.basename(raiz).lower() == "logs":
-            print(raiz, arquivos)
-            # for arquivo in arquivos:
-            #     caminho_arquivo = os.path.join(raiz, arquivo)
+            for arquivo in arquivos:
+                if arquivo.endswith(".log") or arquivo.endswith(".txt"):
+                    caminho_arquivo = os.path.join(raiz, arquivo)
 
-            #     if datetime.fromtimestamp(os.path.getmtime(caminho_arquivo)) < limite:
-            #         os.remove(caminho_arquivo)
-            #         print(f"Apagado: {caminho_arquivo}")
+                    if datetime.fromtimestamp(os.path.getmtime(caminho_arquivo)) < limite:
+                        os.remove(caminho_arquivo)
 
-
-limpar_logs(r"C:\Users\e.gustavo.santos.GRUPO_A&C\Documents\Projetos")
+limpar_logs(r"C:\Users\e.gustavo.santos.GRUPO_A&C\Documents\GitHub")
