@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 
 def limpar_logs(caminho):
-    limite = datetime.now() - timedelta(days=15)
+    limite = datetime.now() - timedelta(days=30)
 
     for raiz, pastas, arquivos in os.walk(caminho):
         if os.path.basename(raiz).lower() == "logs":
